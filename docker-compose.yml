@@ -15,6 +15,7 @@ services:
     environment:
       DOMAINS: 'vccmarsh.link -> http://web:8080/'
       STAGE: 'staging'
+      #FORCE_RENEW: 'true'
     depends_on:
       - django
   django:
