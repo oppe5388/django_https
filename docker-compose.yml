@@ -6,7 +6,8 @@ services:
     restart: always
     volumes:
       - ./nginx/ssl_certs:/var/lib/https-portal
-      - ./nginx/conf/mysite_nginx.conf:/etc/nginx/conf.d/mysite_nginx.conf
+      #- ./nginx/conf/mysite_nginx.conf:/etc/nginx/conf.d/mysite_nginx.conf
+      - ./nginx/conf/mysite_nginx.conf:/var/lib/nginx-conf/vccmarsh.link.conf.erb:ro
       - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
       - ./src/static:/static
     ports:
