@@ -14,7 +14,8 @@ services:
       - '80:80'
       - '443:443'
     environment:
-      DOMAINS: 'vccmarsh.link -> http://web:8080/'
+      #DOMAINS: 'vccmarsh.link -> http://web:8080/'
+      DOMAINS: 'vccmarsh.link -> http://django:8001'
       STAGE: 'staging'
       #FORCE_RENEW: 'true'
     depends_on:
@@ -26,7 +27,8 @@ services:
       - ./src:/code
     expose:
       - '8001'
-    command: uwsgi --socket :8001 --module mysite.wsgi
+    #command: uwsgi --socket :8001 --module mysite.wsgi
+    command: python3 manage.py runserver 8001
     depends_on:
       - db
   db:
